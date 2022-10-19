@@ -1,0 +1,16 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: >
+  SAM Template
+
+Resources:
+  HelloWorldFunction:
+    Type: "AWS::Serverless::Function"
+    Properties:
+      FunctionName: HelloWorld
+      Handler: bootstrap.is.real.handler
+      Runtime: provided
+      MemorySize: 2048
+      CodeUri: .
+    Metadata:
+      BuildMethod: makefile
