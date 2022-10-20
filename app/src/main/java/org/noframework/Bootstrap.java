@@ -1,3 +1,4 @@
+package org.noframework;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -6,7 +7,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 
-public class Handler {
+public class Bootstrap {
 
     final static String API_URL = "http://" + System.getenv("AWS_LAMBDA_RUNTIME_API") + "/2018-06-01";
 

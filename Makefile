@@ -5,8 +5,6 @@
 #
 
 build-HelloWorldFunction:
-	mkdir -p bin/classes
-	javac src/**.java -d bin/classes
-	jar -cvf bin/classes.jar -C bin/classes .
-	native-image --enable-url-protocols=http -cp bin/classes.jar Handler bin/bootstrap
-	cp bin/bootstrap $(ARTIFACTS_DIR)
+	./gradlew build
+	native-image --enable-url-protocols=http -jar app/build/libs/app.jar app/build/distributions/bootstrap
+	cp app/build/distributions/bootstrap $(ARTIFACTS_DIR)
