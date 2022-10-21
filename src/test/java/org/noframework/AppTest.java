@@ -7,7 +7,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class AppTest {
-    @Test public void testAppHasAGreeting() {
+    @Test public void testInitialization() {
         Bootstrap classUnderTest = new Bootstrap();
         assertNotNull("constructor passes", classUnderTest);
     }

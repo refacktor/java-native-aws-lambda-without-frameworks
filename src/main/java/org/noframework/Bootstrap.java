@@ -5,11 +5,12 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.net.URLEncoder;
 
 public class Bootstrap {
 
     final static String API_URL = "http://" + System.getenv("AWS_LAMBDA_RUNTIME_API") + "/2018-06-01";
+
+    final static Handler handler = new Handler();
 
     public static void main(String[] args) throws IOException {
         for (;;) {
@@ -27,7 +28,7 @@ public class Bootstrap {
             http.connect();
 
             try (OutputStream os = http.getOutputStream()) {
-                handle(request, os);
+                handler.handle(request, os);
             }
             if (http.getResponseCode() >= 300) {
                 throw new IllegalStateException("ERROR: statusCode = " + http.getResponseCode());
@@ -35,10 +36,6 @@ public class Bootstrap {
             http.disconnect();
             conn.disconnect();
         }
-    }
-
-    private static void handle(byte[] request, OutputStream os) throws IOException {
-        os.write(("{\"hello\": \"world\", \"request\": \"" + URLEncoder.encode(new String(request), "utf-8") + "\"}").getBytes());
     }
 
 }

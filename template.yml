@@ -8,7 +8,7 @@ Resources:
     Type: "AWS::Serverless::Function"
     Properties:
       FunctionName: HelloWorld
-      Handler: bootstrap.is.real.handler
+      Handler: org.noframework.Handler # for documentation only, has no effect.
       Runtime: provided
       MemorySize: 2048
       CodeUri: .
