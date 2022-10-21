@@ -43,3 +43,7 @@ This architecture delivers a more level playing field when comparing Java to the
 Traditional Java with JIT and Springboot are a poor fit for serverless as the runtime initialization cycles become wasteful. Springboot and other "platform"-like Java frameworks are hyper-optimized for the long-lived JVMs on persistent servers.
 
 Going AOT and without any mandatory framework dependencies enables more deliberate control over the serverless init cycle i.e. only pay for what you need.
+
+# TL;DR
+
+Looks very promising, but failure to get Jackson 2.13.4 to work is kind of a show-stopper to using this architecture on any real-world project.
